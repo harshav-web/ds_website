@@ -18,18 +18,18 @@ Personal laboratory website for **HARSHAVARDHAN REDDY V.**
 5. Open the **Actions** tab. Run “Deploy to GitHub Pages” if it has not already started.
 6. After the workflow completes, your website URL appears under **Settings → Pages**.
 
-This source export uses React and TanStack Router with hash navigation (`#/lab`, `#/modules`) so page refreshes work on GitHub Pages. All assets use repository-relative paths. No hosting credentials or paid backend is required.
+This source export uses React and TanStack Router with hash navigation (`#/lab`, `#/modules`) so page refreshes work on GitHub Pages. The production build uses the `/ds_website/` project-site path for assets. No hosting credentials or paid backend is required.
 
 ## Run locally
 
-Install Node.js 22 or later, then run:
+Install Bun, then run:
 
 ```sh
-npm install
-npm run dev
+bun install --frozen-lockfile
+bun run dev
 ```
 
-To create production files, run `npm run build`. GitHub Actions performs this automatically.
+To create production files, run `bun run build`. GitHub Actions installs the locked dependencies and deploys the `dist` folder automatically when changes are pushed to `main`.
 
 ## Included
 

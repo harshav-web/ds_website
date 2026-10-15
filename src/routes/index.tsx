@@ -1,0 +1,19 @@
+import { createFileRoute, Link } from '@tanstack/react-router';
+import { ArrowRight, FlaskConical, BookOpen, Code2, ArrowUpRight } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { PageHeading } from '@/components/laboratory/shell';
+import { ExperimentList, SectionTitle } from '@/components/laboratory/experiment-list';
+import { student } from '@/data/student';
+import photo from '@/assets/student-photo.png.asset.json';
+export const Route = createFileRoute('/')({
+ head: () => ({ meta: [{ title: 'Data Science Laboratory & Learnings | Harshavardhan Reddy V.' }, { name: 'description', content: 'Harshavardhan Reddy V.’s fifth-semester Data Science laboratory: six experiments, 26 practical sections, Python code and learning videos.' }, { property: 'og:title', content: 'Data Science Laboratory & Learnings' }, { property: 'og:description', content: 'Explore Harshavardhan Reddy V.’s practical data science learning space.' }, { property: 'og:type', content: 'website' }, { name: 'twitter:card', content: 'summary_large_image' }] }),
+ component: Home,
+});
+function Home() {
+ return <main className="page-container home-page"><PageHeading title="Data Science Laboratory and Learnings" subtitle="A little curiosity. A lot of possibilities." profile/>
+ <div className="welcome-band"><div className="welcome-copy"><p className="eyebrow">LEARN. EXPERIMENT. DISCOVER.</p><h2>From raw data<br/>to real understanding<span>.</span></h2><p>My collection of data science practicals, Python explorations, and everything learned along the way.</p><Button asChild size="lg"><Link to="/lab">Explore the laboratory <ArrowRight/></Link></Button><span className="welcome-caption">Semester 5 · Data Science · 2410ds006</span></div><div className="data-art" aria-hidden="true"><div className="art-top"><span className="art-dots">● ● ●</span><span>explore.ipynb</span><span>PYTHON</span></div><div className="art-code"><p><i>import</i> pandas <i>as</i> pd</p><p><i>import</i> numpy <i>as</i> np</p><br/><p><span>data</span> = pd.read_csv(<b>"possibilities.csv"</b>)</p><p>data.explore()</p></div><div className="art-chart"><div className="chart-axis"><span>100</span><span>75</span><span>50</span><span>25</span></div><div className="chart-bars">{[38, 53, 45, 68, 58, 81, 74, 94].map((height, i) => <div key={i} className={`bar bar-${i}`}><span/></div>)}</div></div><div className="art-bottom"><span className="ready-dot"/> A new insight, every day.<span>01 — 06</span></div></div></div>
+ <section className="learning-space"><div className="section-title"><h2>My learning space</h2><span className="muted-text">Built one experiment at a time.</span></div><div className="learning-grid"><Link to="/lab" className="learning-item"><span className="learning-icon"><FlaskConical/></span><div><h3>Laboratory experiments</h3><p>6 experiments · 26 practical sections</p></div><ArrowUpRight size={20}/></Link><Link to="/lab/$experimentId" params={{ experimentId: '01' }} className="learning-item"><span className="learning-icon green"><Code2/></span><div><h3>Code & practice</h3><p>Python, pandas, NumPy & more</p></div><ArrowUpRight size={20}/></Link><Link to="/lab/$experimentId" params={{ experimentId: '05' }} className="learning-item"><span className="learning-icon amber"><BookOpen/></span><div><h3>Learning resources</h3><p>Video tutorials for every practical</p></div><ArrowUpRight size={20}/></Link></div></section>
+ <section className="home-experiments"><SectionTitle title="Inside the laboratory" count="06"/><ExperimentList compact/></section>
+ <div className="student-note"><img src={photo.url} alt="Harshavardhan Reddy V."/><div><p>A learning journey by</p><strong>{student.name}</strong><span>Data Science · Mohan Babu University</span></div><span className="note-professor">Guided by <strong>{student.professor}</strong><small>Assistant professor</small></span></div>
+ </main>;
+}

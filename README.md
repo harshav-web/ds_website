@@ -18,7 +18,7 @@ Personal laboratory website for **HARSHAVARDHAN REDDY V.**
 5. Open the **Actions** tab. Run “Deploy to GitHub Pages” if it has not already started.
 6. After the workflow completes, your website URL appears under **Settings → Pages**.
 
-This source export uses React and TanStack Router with hash navigation (`#/lab`, `#/modules`) so page refreshes work on GitHub Pages. The production build uses the `/ds_website/` project-site path for assets. No hosting credentials or paid backend is required.
+This source export uses React and TanStack Router with hash navigation (`#/lab`, `#/modules`) so page refreshes work on GitHub Pages. The production build uses relative asset paths (`./`) so it works seamlessly on GitHub Pages and local builds. No hosting credentials or paid backend is required.
 
 ## Run locally
 
